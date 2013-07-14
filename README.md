@@ -26,8 +26,8 @@ call_input_args_tracing_lib
 					 &p_array,			/* Address   of Param-2 */
 					 "char_t*",			/* Data Type of Param-2 */
 
-					 p_sample_var,			/* Address   of Param-3 */
-					 "struct sample"		/* Data Type of Param-3 */
+					 p_sample_var,		/* Address   of Param-3 */
+					 "struct sample"	/* Data Type of Param-3 */
 				);
 
 You can Pass ANY Number of Input Parameters for printing with InputArgsTracingLib.
