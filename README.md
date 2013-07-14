@@ -14,8 +14,11 @@ Suppose you have a Function func() - whose Input Parameters need to be printed.
 
 At the Beginning of the Function, just include a single statement (preferably under some customized UT Flags for your code):
 
-call_input_args_tracing_lib (
-					 3, 				/* No. of I/P Parameters 	*/
+
+call_input_args_tracing_lib 
+
+				(
+					 3, 				/* No. of I/P Parameters */
 
 					 pval,				/* Address   of Param-1 */
 					 "int_t",			/* Data Type of Param-1 */
@@ -23,9 +26,9 @@ call_input_args_tracing_lib (
 					 &p_array,			/* Address   of Param-2 */
 					 "char_t*",			/* Data Type of Param-2 */
 
-					 p_sample_var,		/* Address   of Param-3 */
-					 "struct sample"	/* Data Type of Param-3 */
-					 );
+					 p_sample_var,			/* Address   of Param-3 */
+					 "struct sample"		/* Data Type of Param-3 */
+				);
 
 You can Pass ANY Number of Input Parameters for printing with InputArgsTracingLib.
 
