@@ -6,7 +6,7 @@ This Library provides Pretty Printing of the Values of Input Parameters of A Fun
 It can easily provide pretty-printed Multilevel Complex Structures which are passed as Input Parameters for the concerned functions.
 
 
-**What Changes are required in your Source Code for Integration with S_malloc Library ?**
+**What Changes are required in your Source Code for Integration with InputArgsTracingLib ?**
 
 Very small Changes are required to Integrate InputArgsTracingLib with your Source Code.
 
