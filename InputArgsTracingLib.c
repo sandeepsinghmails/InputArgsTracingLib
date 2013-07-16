@@ -50,9 +50,16 @@ void call_input_args_tracing_lib (int num_params, ...)
 		arg_index++) 
 	{
 		p_var 	   = va_arg (ap, void*);
-		data_type  = va_arg (ap, char*);	
-    
-		sprintf(buffer, "echo 'p *(%s*)%p' >> gdbcmds", data_type, p_var);
+		data_type  = va_arg (ap, char*);
+		
+		if ('@'==data_type[1])
+		{
+			sprintf(buffer, "echo 'p *(%s*)%p@%c' >> gdbcmds", data_type+2, p_var, data_type[0]);			
+		}
+		else
+		{
+    			sprintf(buffer, "echo 'p *(%s*)%p' >> gdbcmds", data_type, p_var);
+		}
     	system(buffer);
     }
     va_end(ap);
