@@ -38,8 +38,10 @@ Example:
 
 To print an array of Structures of type "struct sample", pass the Input Argument as follows:
 
-p_sample_var_array,	/* Address of Parameter   */
-"3@struct sample"	/* Data-Type of PArameter */
+p_sample_var_array,			/* Address of Parameter   */
+
+"3@struct sample"			/* Data-Type of Parameter */
+
 
 You can Pass ANY Number of Input Parameters for printing with InputArgsTracingLib.
 
