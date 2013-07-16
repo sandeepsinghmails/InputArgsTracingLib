@@ -33,7 +33,7 @@
 
 /* Basic Data Types */
 typedef	int			int_t;
-typedef char		char_t;
+typedef char			char_t;
 
 /* Complex Structure */
 typedef struct
@@ -112,13 +112,38 @@ void driver_function2 (int_t   val2,
 	/* Done with Tracing, Now Get Back To Your Work :) */
 }
 
+void driver_function3 (
+					   char_t 		*p_array,
+					   struct sample 	*p_sample_var)
+{
+	/* To Get the I/P Parameter Trace, Just Add this Function Call at the 
+	 * Beginning of Each Function
+	 */
+	#ifdef USE_IP_ARGS_TRACING_LIB
+	call_input_args_tracing_lib (
+					 2, 				/* No. of Parameters 	*/
+
+					 &p_array,			/* Address   of Param-2 */
+					 "char_t*",			/* Data Type of Param-2 */
+
+					 p_sample_var,			/* Address   of Param-3 */
+					 "3@struct sample"		/* Data Type of Param-3 */
+					 );
+	#endif
+
+	/* Done with Tracing, Now Get Back To Your Work :) */
+}
+
 int main ()
 {
 	struct sample 				sample_var;
-	int_t val 					= 47;
-	char_t			string[10] 	= "Main";
+	struct sample 				sample_var_array [3];
+	int_t val 				= 47;
+	char_t			string1[10] 	= "Driver1";
+	char_t			string2[10] 	= "Driver2";
+	char_t			string3[10] 	= "Driver3";
 
-	char_t			string2[10] = "Driver2";
+
 	int_t			val2 		= 21;
 
 	/* Fill the Complex Structure */
@@ -136,14 +161,66 @@ int main ()
 			 sizeof("Structure4"));
 
 	sample_var.sample4.s1_3.s2_2.s4_2 = 89;
+	
+	/* Fill the Array of Structures */
+	/* Structure at Index 0 */
+	sample_var_array[0].sample1 = 11;
+	sample_var_array[0].sample2 = 12;
+	strncpy (sample_var_array[0].sample3, "Structure_1", sizeof("Structure_1"));
+	sample_var_array[0].sample4.s1_1 = 13;
+	sample_var_array[0].sample4.s1_2 = 'a';
+	strncpy (sample_var_array[0].sample4.s1_3.s2_1.s3_1, 
+			"Structure3_1", 
+			sizeof("Structure3_1"));
+	sample_var_array[0].sample4.s1_3.s2_1.s3_2 = 14;
 
-	driver_function1 (&val, 
-		  			  string,
+	strncpy (sample_var_array[0].sample4.s1_3.s2_2.s4_1, "Structure4_1", 
+			 sizeof("Structure4_1"));
+
+	sample_var_array[0].sample4.s1_3.s2_2.s4_2 = 15;
+	
+	/* Structure at Index 1 */
+	sample_var_array[1].sample1 = 21;
+	sample_var_array[1].sample2 = 22;
+	strncpy (sample_var_array[1].sample3, "Structure_2", sizeof("Structure_2"));
+	sample_var_array[1].sample4.s1_1 = 23;
+	sample_var_array[1].sample4.s1_2 = 'b';
+	strncpy (sample_var_array[1].sample4.s1_3.s2_1.s3_1, 
+			"Structure3_2", 
+			sizeof("Structure3_2"));
+	sample_var_array[1].sample4.s1_3.s2_1.s3_2 = 24;
+
+	strncpy (sample_var_array[1].sample4.s1_3.s2_2.s4_1, "Structure4_2", 
+			 sizeof("Structure4_2"));
+
+	sample_var_array[1].sample4.s1_3.s2_2.s4_2 = 25;
+	
+	/* Structure at Index 2 */
+	sample_var_array[2].sample1 = 31;
+	sample_var_array[2].sample2 = 32;
+	strncpy (sample_var_array[2].sample3, "Structure_3", sizeof("Structure_3"));
+	sample_var_array[2].sample4.s1_1 = 33;
+	sample_var_array[2].sample4.s1_2 = 'c';
+	strncpy (sample_var_array[2].sample4.s1_3.s2_1.s3_1, 
+			"Structure3_3", 
+			sizeof("Structure3_3"));
+	sample_var_array[2].sample4.s1_3.s2_1.s3_2 = 34;
+
+	strncpy (sample_var_array[2].sample4.s1_3.s2_2.s4_1, "Structure4_3", 
+			 sizeof("Structure4_3"));
+
+	sample_var_array[2].sample4.s1_3.s2_2.s4_2 = 35;
+
+	driver_function1 (		  &val, 
+		  			  string1,
 		  			  &sample_var);
 
 	driver_function2 (val2,
 					  string2);
 	
+	driver_function3 (		  string3,
+		  			  sample_var_array);
+		  			  
 	return 0;
 }
 
