@@ -29,6 +29,17 @@ call_input_args_tracing_lib
 					 p_sample_var,		/* Address   of Param-3 */
 					 "struct sample"	/* Data Type of Param-3 */
 				);
+				
+*To Print Arrays:*
+
+Give "Array_Size@" at the beginning of array data-type
+
+Example:
+
+To print an array of Structures of type "struct sample", pass the Input Argument as follows:
+
+p_sample_var_array,	/* Address of Parameter   */
+"3@struct sample"	/* Data-Type of PArameter */
 
 You can Pass ANY Number of Input Parameters for printing with InputArgsTracingLib.
 
